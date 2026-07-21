@@ -10,9 +10,9 @@ import ImageCardGrid from "./components/layout/ImageCardGrid";
 import HeroCtaBanner from "./components/layout/HeroCtaBanner";
 
 async function getHomepage() {
-  const { data } = await fetchAPI("/api/homepage");
+  const response = await fetchAPI("/api/homepage");
 
-  return data;
+  return response?.data ?? { pageBuilder: [] };
 }
 
 export default async function Home() {
@@ -59,7 +59,6 @@ export default async function Home() {
               <EnableBusiness
                 key={`${block.__component}-${block.id}-${index}`}
                 data={block}
-                STRAPI_URL={""}
               />
             );
 

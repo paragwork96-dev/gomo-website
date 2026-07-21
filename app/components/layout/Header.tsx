@@ -34,16 +34,23 @@ export default function Header({ data }: HeaderProps) {
         {/* Navigation */}
         <nav>
           <ul className="flex items-center gap-8">
-            {data.navigationLink.map((item) => (
-              <li key={item.id}>
-                <Link
-                  href={item.url}
-                  className="text-sm font-medium text-stone hover:text-ink"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {data.navigationLink.map((item) => {
+              const href =
+                item.label.trim().toLowerCase() === "food industry"
+                  ? "/products"
+                  : item.url;
+
+              return (
+                <li key={item.id}>
+                  <Link
+                    href={href}
+                    className="text-sm font-medium text-stone hover:text-ink"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
