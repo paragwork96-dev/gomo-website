@@ -5,6 +5,9 @@ import StatsRow from "./components/layout/StatsRow";
 import BrandLogoGrid from "./components/layout/BrandLogoGrid";
 import EnableBusiness from "./components/layout/EnableBusiness";
 import WhyChooseUs from "./components/layout/WhyChooseUs";
+import ContentCarousel from "./components/layout/CarouselContent";
+import ImageCardGrid from "./components/layout/ImageCardGrid";
+import HeroCtaBanner from "./components/layout/HeroCtaBanner";
 
 async function getHomepage() {
   const { data } = await fetchAPI("/api/homepage");
@@ -63,6 +66,30 @@ export default async function Home() {
           case "blocks.why-choose-us":
             return (
               <WhyChooseUs key={`${block.__component}-${index}`} data={block} />
+            );
+
+          case "blocks.content-carousel":
+            return (
+              <ContentCarousel
+                key={`${block.__component}-${index}`}
+                data={block}
+              />
+            );
+
+          case "blocks.image-card-grid":
+            return (
+              <ImageCardGrid
+                key={`${block.__component}-${index}`}
+                data={block}
+              />
+            );
+
+          case "blocks.hero-cta-banner":
+            return (
+              <HeroCtaBanner
+                key={`${block.__component}-${index}`}
+                data={block}
+              />
             );
 
           default:

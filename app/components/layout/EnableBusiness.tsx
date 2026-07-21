@@ -31,7 +31,7 @@ export default function IndustrySolutionsSection({ data }: ComponentProps) {
 
   return (
     <section className="bg-bedge p-24 text-stone-900">
-      <div className="container p-16 mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-16 flex flex-col text-center gap-6 md:flex-row md:items-end md:justify-between">
           <div className="">

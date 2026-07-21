@@ -15,7 +15,7 @@ const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL!;
 export default function HeroBanner({ data }: HeroBannerProps) {
   return (
     <section className="relative flex h-screen items-center justify-center overflow-hidden">
-      <div className="relative h-[90%] w-[80%] overflow-hidden rounded-lg">
+      <div className="relative h-[90%] w-[95%] overflow-hidden rounded-lg">
         <video
           autoPlay
           muted

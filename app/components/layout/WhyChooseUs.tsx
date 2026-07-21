@@ -16,8 +16,8 @@ type WhyChooseUsProps = {
 
 export default function WhyChooseUs({ data }: WhyChooseUsProps) {
   return (
-    <section className="  py-24 text-stone-900">
-      <div className="container w-[80%] bg-green mx-auto max-w-7xl px-4">
+    <section className="py-24 text-stone-900">
+      <div className="container w-[80%] bg-green mx-auto max-w-7xl p-0 pt-10 ">
         {/* Section Header */}
         <div className="mb-16 flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-center">
           <div>

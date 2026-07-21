@@ -57,13 +57,41 @@ export async function fetchAPI(path: string) {
               populate: "*",
             },
             "blocks.content-carousel": {
-              populate: "*",
+              populate: {
+                sectionHeader: {
+                  populate: {
+                    cta: true,
+                  },
+                },
+                cards: {
+                  populate: {
+                    image: true,
+                    cta: true,
+                  },
+                },
+              },
             },
             "blocks.image-card-grid": {
-              populate: "*",
+              populate: {
+                sectionHeader: {
+                  populate: {
+                    cta: true,
+                  },
+                },
+                cards: {
+                  populate: {
+                    image: true,
+                    cta: true,
+                  },
+                },
+              },
             },
             "blocks.hero-cta-banner": {
-              populate: "*",
+              populate: {
+                backgroundImage: true,
+                logo: true,
+                primaryCTA: true,
+              },
             },
           },
         },
