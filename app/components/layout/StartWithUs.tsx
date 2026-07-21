@@ -1,11 +1,14 @@
-import Image from "next/image";
-import Link from "next/link";
+import SectionHeader from "../ui/SectionHeader";
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL!;
 
 type StartWithUsProps = {
   data: {
-    paragraph: any;
+    paragraph: Array<{
+      children?: Array<{
+        text?: string;
+      }>;
+    }>;
     image: {
       url: string;
       alternativeText: string | null;
@@ -15,10 +18,10 @@ type StartWithUsProps = {
     sectionHeader: {
       heading: string;
       description: string;
-      cta: {
+      cta?: {
         label: string;
         url: string;
-        variant: string;
+        variant?: string;
       };
     };
   };
@@ -29,24 +32,15 @@ export default function StartWithUs({ data }: StartWithUsProps) {
     <section className="py-10">
       <div className="container">
         {/* Section Header */}
-        <div className="mb-16 flex flex-col items-center justify-center">
-          <p className="mb-3 text-sm uppercase tracking-wider text-stone-muted">
-            {data.sectionHeader.heading}
-          </p>
-
-          <h2 className="mb-6 font-display text-2xl">
-            {data.sectionHeader.description}
-          </h2>
-
-          {data.sectionHeader.cta && (
-            <Link
-              href={data.sectionHeader.cta.url}
-              className="inline-flex rounded-pill bg-ink px-6 py-3 text-cream"
-            >
-              {data.sectionHeader.cta.label}
-            </Link>
-          )}
-        </div>
+        <SectionHeader
+          eyebrow={data.sectionHeader.heading}
+          title={data.sectionHeader.description}
+          cta={data.sectionHeader.cta}
+          className="mb-16 flex flex-col items-center text-center justify-center"
+          titleClassName="mb-6 font-display text-2xl"
+          eyebrowClassName="mb-3 text-sm uppercase tracking-wider text-stone-muted"
+          ctaClassName="inline-flex rounded-pill bg-ink px-6 py-3 text-cream"
+        />
 
         {/* Content */}
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">

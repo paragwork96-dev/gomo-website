@@ -1,4 +1,5 @@
 import React from "react";
+import SectionHeader from "../ui/SectionHeader";
 
 interface ComponentProps {
   data: {
@@ -33,26 +34,16 @@ export default function IndustrySolutionsSection({ data }: ComponentProps) {
     <section className="bg-bedge p-24 text-stone-900">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16 flex flex-col text-center gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="">
-            <p className="mb-3 text-sm font-display uppercase tracking-wider text-stone-500">
-              {sectionHeader.heading}
-            </p>
-
-            <h2 className="text-2xl font-display tracking-tight text-stone-900 md:text-2xl">
-              {sectionHeader.description}
-            </h2>
-          </div>
-
-          {sectionHeader.cta && (
-            <a
-              href={sectionHeader.cta.url}
-              className="inline-block self-start rounded-full border border-stone-800 px-6 py-3 text-sm font-medium transition hover:bg-stone-800 hover:text-white"
-            >
-              {sectionHeader.cta.label}
-            </a>
-          )}
-        </div>
+        <SectionHeader
+          eyebrow={sectionHeader.heading}
+          title={sectionHeader.description}
+          cta={sectionHeader.cta}
+          className="mb-16 flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-between"
+          contentClassName=""
+          titleClassName="text-2xl font-display tracking-tight text-stone-900 md:text-2xl"
+          eyebrowClassName="mb-3 text-sm font-display uppercase tracking-wider text-stone-500"
+          ctaClassName="inline-block self-start rounded-full border border-stone-800 px-6 py-3 text-sm font-medium transition hover:bg-stone-800 hover:text-white"
+        />
 
         {/* Content */}
         <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12">

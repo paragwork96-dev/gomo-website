@@ -1,4 +1,4 @@
-import Link from "next/link";
+import SectionHeader from "../ui/SectionHeader";
 
 type ContentCarouselProps = {
   data: {
@@ -29,30 +29,16 @@ export default function ContentCarousel({ data }: ContentCarouselProps) {
     <section className="py-24 text-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div
-          className="mb-16 flex flex-col gap-6 items-center text-center
-         md:justify-center
-        "
-        >
-          <div className="max-w-3xl">
-            <p className="mb-3 text-sm font-display uppercase tracking-wider text-stone-500">
-              {data.sectionHeader.heading}
-            </p>
-
-            <h2 className="text-2xl font-display tracking-tight text-stone-900 md:text-2xl">
-              {data.sectionHeader.description}
-            </h2>
-          </div>
-
-          {data.sectionHeader.cta && (
-            <Link
-              href={data.sectionHeader.cta.url}
-              className="rounded-pill border border-stone-900 px-6 py-3 text-stone-900 transition hover:bg-stone-900 hover:text-white"
-            >
-              {data.sectionHeader.cta.label}
-            </Link>
-          )}
-        </div>
+        <SectionHeader
+          eyebrow={data.sectionHeader.heading}
+          title={data.sectionHeader.description}
+          cta={data.sectionHeader.cta}
+          className="mb-16 flex flex-col items-center gap-6 text-center md:justify-center"
+          contentClassName="max-w-3xl"
+          titleClassName="text-2xl font-display tracking-tight text-stone-900 md:text-2xl"
+          eyebrowClassName="mb-3 text-sm font-display uppercase tracking-wider text-stone-500"
+          ctaClassName="rounded-pill border border-stone-900 px-6 py-3 text-stone-900 transition hover:bg-stone-900 hover:text-white"
+        />
 
         {/* Cards Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

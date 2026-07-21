@@ -5,6 +5,7 @@ import type { Swiper as SwiperType } from "swiper";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import SectionHeader from "../ui/SectionHeader";
 
 type BrandLogoGridProps = {
   data: {
@@ -34,17 +35,14 @@ export default function BrandLogoGrid({ data }: BrandLogoGridProps) {
   return (
     <section className="py-24">
       <div className="container">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 font-display text-display-lg">
-            {data.sectionHeader.heading}
-          </h2>
-
-          {data.sectionHeader.description && (
-            <p className="mx-auto max-w-2xl text-stone-muted">
-              {data.sectionHeader.description}
-            </p>
-          )}
-        </div>
+        <SectionHeader
+          title={data.sectionHeader.heading}
+          description={data.sectionHeader.description}
+          variant="simple"
+          titleClassName="mb-4 font-display text-display-lg"
+          descriptionClassName="mx-auto max-w-2xl text-stone-muted"
+          className="mb-12 text-center"
+        />
 
         <div
           className="overflow-hidden py-4 sm:py-6"
